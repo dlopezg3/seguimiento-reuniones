@@ -10,7 +10,7 @@ class AssistancesController < ApplicationController
     @assistance = Assistance.new(assistance_params)
     @assistance.meet = @meet
     if @assistance.save
-      redirect_to new_meet_assistance_path(@meet, @assistance)
+      redirect_to new_meet_assistance_path(@meet, anchor: "assistance-#{@assistance.id}")
     else
       render :new
     end
