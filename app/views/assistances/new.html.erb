@@ -1,0 +1,21 @@
+<div class="container">
+  <div data-controller="assistances">
+    <% if @meet.assistances.blank? %>
+      Agrega el primer asistente a la reunión
+    <% else %>
+      <% @meet.assistances.each do |assistance| %>
+        <p id="assistance-<%= assistance.id %>"><%= assistance.email %></p>
+      <% end %>
+    <% end %>
+    <div class="assistants-list">
+      <li class="d-none">
+      </li>
+    </div>
+    <div class="assistants-form">
+      <%= simple_form_for([@meet, @assistance]) do |f| %>
+        <%= f.input :email %>
+        <%= f.button :submit, class:"btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

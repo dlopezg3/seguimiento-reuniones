@@ -1,0 +1,9 @@
+<div class="container">
+  <%= simple_form_for @meet do |f| %>
+    <%= f.input :nombre%>
+    <%= f.input :tipo %>
+    <%= f.input :fecha, as: :date, html5: true %>
+    <%= f.input :lugar %>
+    <%= f.button :submit, class:"btn btn-primary" %>
+  <% end %>
+</div>
