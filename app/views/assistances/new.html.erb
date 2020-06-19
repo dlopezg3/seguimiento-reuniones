@@ -4,7 +4,7 @@
     Asistentes de la reunión: <%= @meet.nombre %>
   </h2>
   <h4>
-    Actualmente hay <%= @meet.assistances.size %> <%= %>
+    Participantes en la reunión <%= @meet.assistances.size %>
   </h4>
   <% if @meet.assistances.blank? %>
     Agrega el primer asistente a la reunión
