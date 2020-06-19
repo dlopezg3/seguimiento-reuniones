@@ -1,0 +1,17 @@
+es-CO:
+  simple_form:
+    labels:
+      defaults:
+        username: 'Nombre de usuario'
+        password: 'Contraseña'
+        password_confirmation: 'Confirmar contraseña'
+        new:
+          username: 'Elige un nombre de usuario'
+    hints:
+      defaults:
+        password: 'Sin caracteres especiales'
+    placeholders:
+      defaults:
+        email: 'ejemplo@antioquia.gov.co'
+        password: '********'
+        password_confirmation: "********"
