@@ -4,4 +4,4 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap";
-import 'controllers';
+import "controllers"
