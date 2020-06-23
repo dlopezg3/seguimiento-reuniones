@@ -5,3 +5,6 @@ require("channels")
 
 import "bootstrap";
 import "controllers"
+
+require("trix")
+require("@rails/actiontext")
