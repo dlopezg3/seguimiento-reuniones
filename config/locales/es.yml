@@ -1,5 +1,9 @@
 es-CO:
   activerecord:
+    models:
+      assistance: "Asistente"
+      task: "Tarea"
+      meet: "Reunión"
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
