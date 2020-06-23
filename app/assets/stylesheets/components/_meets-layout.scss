@@ -1,0 +1,9 @@
+.meet-grid {
+  display: grid;
+  grid-template-columns: 3fr 1fr;
+  grid-gap: 16px;
+}
+.meeting-assistances .card {
+  position: sticky;
+  top: 40px;
+}
