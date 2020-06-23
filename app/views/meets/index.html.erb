@@ -1,2 +1,8 @@
-<h1>Meets#index</h1>
-<p>Find me in app/views/meets/index.html.erb</p>
+<ul>
+
+  <% @meets.each do |meet| %>
+    <li>
+      <%= link_to meet.nombre, meet_path(meet) %>
+    </li>
+  <% end %>
+</ul>
