@@ -4,25 +4,30 @@
     Asistentes de la reunión: <%= @meet.nombre %>
   </h2>
   <h4>
+    Añadir nuevo asistente
+  </h4>
+  <div class="assistants-form mb-4 w-75">
+    <%= simple_form_for([@meet, @assistance], remote: true) do |f| %>
+      <%= f.input :email, as: :email, label: "Correo del asistente" %>
+      <%= f.button :submit, class:"btn btn-primary", value:"Añadir Asistente" %>
+    <% end %>
+  </div>
+  <h4>
     Participantes en la reunión <%= @meet.assistances.size %>
   </h4>
   <% if @meet.assistances.blank? %>
     Agrega el primer asistente a la reunión
   <% else %>
-    <% @meet.assistances.each do |assistance| %>
     <ul>
-      <li id="assistance-<%= assistance.id %>"><%= assistance.email %> </ol>
+      <% @meet.assistances.reverse.each do |assistance| %>
+        <li id="assistance-<%= assistance.id %>"><%= assistance.email %> </li>
+      <% end %>
     </ul>
-    <% end %>
   <% end %>
   <div class="assistants-list">
     <li class="d-none">
     </li>
   </div>
-  <div class="assistants-form">
-    <%= simple_form_for([@meet, @assistance]) do |f| %>
-      <%= f.input :email, as: :email %>
-      <%= f.button :submit, class:"btn btn-primary" %>
-    <% end %>
-  </div>
+  <%= link_to "Finalizar registro", meet_path(@meet), class:"btn btn-secondary btn-end-process"  %>
 </div>
+
