@@ -51,15 +51,17 @@
         </div>
       </div>
       <% else %>
-        <div class="card-grid">
+        <div class="row">
           <% @meet.tasks.reverse.each do |task| %>
-            <div class="card mb-2">
-              <div class="card-body">
-                <div class="card-title">
-                  <%= task.nombre %>
-                </div>
-                <div class="card-text">
-                  <%= task.assistance.email %>
+            <div class="col-xs-12 col-sm-6 d-flex align-items-stretch">
+              <div class="card w-100 mb-2">
+                <div class="card-body">
+                  <div class="card-title">
+                    <%= task.nombre %>
+                  </div>
+                  <div class="card-text">
+                    <%= task.assistance.email %>
+                  </div>
                 </div>
               </div>
             </div>
