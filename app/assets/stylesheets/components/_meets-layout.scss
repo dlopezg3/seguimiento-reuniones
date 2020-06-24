@@ -1,9 +1,19 @@
-.meet-grid {
-  display: grid;
-  grid-template-columns: 3fr 1fr;
-  grid-gap: 16px;
+@media (min-width: 600px) {
+  .meet-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 16px;
+  }
+  .meeting-assistances .card {
+    position: sticky;
+    top: 40px;
+  }
+  .meeting-assistances {
+    overflow: auto;
+  }
 }
-.meeting-assistances .card {
-  position: sticky;
-  top: 40px;
+@media (max-width: 599px) {
+  .meet-grid {
+    display: block;
+  }
 }
