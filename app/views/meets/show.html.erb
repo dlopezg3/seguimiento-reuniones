@@ -19,9 +19,9 @@
       </div>
       <div class="card mb-4">
         <div class="card-body meet-notes">
-          <h2>
+          <h3>
             Notas de la reunión
-          </h2>
+          </h3>
           <%= simple_form_for @meet, remote: true do |f| %>
             <%= f.rich_text_area :notes, class:"mb-4" %>
             <%= f.button :submit, class:"btn btn-primary", value:"Añadir Notas" %>
@@ -30,22 +30,22 @@
       </div>
       <div class="card mb-4">
         <div class="card-body meet-tasks">
-          <h2 id="tasks-title">
+          <h3 id="tasks-title">
             Tareas de la reunión
-          </h2>
+          </h3>
           <div class="assistants-form mb-4 w-75">
             <%= simple_form_for([@meet, @task], remote: true) do |f| %>
               <%= f.input :nombre, label: "Nombre de la tarea" %>
               <%= f.input :descripcion, label: "Descripcion" %>
               <%= f.input :fecha, as: :date, html5: true, label: "Fecha de entrega" %>
-              <%= f.association :assistance, collection: Assistance.where(meet: @meet), label_method: :email, include_blank: true, selected: "blank" %>
+              <%= f.association :assistance, label: "Responsable", collection: Assistance.where(meet: @meet), label_method: :email, include_blank: true, selected: "blank" %>
               <%= f.button :submit, class:"btn btn-primary", value:"Añadir Tarea" %>
             <% end %>
           </div>
         </div>
       </div>
       <% if @meet.tasks.blank? %>
-      <div class="card">
+      <div class="card mb-4">
         <div class="card-body">
           Agrega la primera tarea la reunión
         </div>
@@ -78,7 +78,7 @@
             </h4>
           </div>
           <div class="card-text">
-            <ul class="list-group list-group-flush">
+            <ul class="list-group list-group-flush text-center">
               <% @meet.assistances.each do |assistance| %>
                 <li class="list-group-item pl-3 pr-3 pt-1 pb-1"><%= assistance.email %> </li>
               <% end %>
