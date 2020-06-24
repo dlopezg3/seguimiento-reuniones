@@ -4,6 +4,7 @@ es-CO:
       assistance: "Asistente"
       task: "Tarea"
       meet: "Reunión"
+      user: "Usuario"
     errors:
       messages:
         record_invalid: 'La validación falló: %{errors}'
