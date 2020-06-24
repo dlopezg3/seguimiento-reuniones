@@ -1,5 +1,4 @@
-
-<div class="container">
+<div class="container mt-4">
   <h2>
     Asistentes de la reunión: <%= @meet.nombre %>
   </h2>
@@ -15,9 +14,7 @@
   <h4>
     Participantes en la reunión <%= @meet.assistances.size %>
   </h4>
-  <% if @meet.assistances.blank? %>
-    Agrega el primer asistente a la reunión
-  <% else %>
+  <% if !@meet.assistances.blank? %>
     <ul>
       <% @meet.assistances.reverse.each do |assistance| %>
         <li id="assistance-<%= assistance.id %>"><%= assistance.email %> </li>
@@ -28,6 +25,6 @@
     <li class="d-none">
     </li>
   </div>
-  <%= link_to "Finalizar registro", meet_path(@meet), class:"btn btn-secondary btn-end-process"  %>
+  <%= link_to "Finalizar registro", meet_path(@meet), class:"btn btn-secondary btn-end-process mt-2"  %>
 </div>
 
