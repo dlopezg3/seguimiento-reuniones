@@ -1,5 +1,4 @@
 class TasksController < ApplicationController
-  skip_before_action :authenticate_user!
   before_action :set_meet, only: %w[create]
 
   def create

@@ -1,5 +1,4 @@
 class AssistancesController < ApplicationController
-  skip_before_action :authenticate_user!
   before_action :set_meet, only: %w[new create]
 
   def new
