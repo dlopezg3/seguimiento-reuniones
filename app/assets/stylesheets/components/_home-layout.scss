@@ -1,0 +1,26 @@
+.home-container-f {
+  height: calc(100vh - 83px);
+}
+.home-container-f .card {
+  margin: 0 auto;
+  max-width: 440px;
+  height: 332px;
+  position: relative;
+}
+.home-container-f .card-body {
+  position: relative;
+}
+.home-container-f .card-button {
+  position: absolute;
+  bottom: 32px;
+  right: 32px;
+}
+.home-background {
+  // background: image-url('campaign.jpg');
+  // background: linear-gradient(left, rgba(255,255,255,0), rgba(255,255,255,1)), url(http://foo.com/image.jpg);
+  background: linear-gradient(to right, rgba(100,100,100,0.5), rgba(100,100,100,0.8)), image-url('campaign.jpg');;
+
+
+  background-size: cover;
+  // background-blend-mode: multiply;
+}
