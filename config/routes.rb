@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
-  root to: 'pages#home'
+  get 'home/index'
+  root to: 'home#index'
+
+  match '/auth/:provider/callback', to: 'users#callback', via: [:get, :post]
+  get 'users/signout'
+
 
   resources :meets do
     resources :assistances, only: %i[new create]
