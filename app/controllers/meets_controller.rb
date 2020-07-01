@@ -16,7 +16,7 @@ class MeetsController < ApplicationController
 
   def create
     @meet = Meet.new(meet_params)
-    if @meet.save!
+    if @meet.save
       redirect_to new_meet_assistance_path(@meet)
     else
       render :new
@@ -28,7 +28,7 @@ class MeetsController < ApplicationController
 
   def update
     @meet.update(meet_params)
-    if @meet.save!
+    if @meet.save
       redirect_to meet_path(@meet)
     else
       render :show
