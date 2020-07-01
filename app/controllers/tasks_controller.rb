@@ -13,7 +13,7 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:nombre, :descripcion, :fecha, :assistance_id)
+    params.require(:task).permit(:nombre, :descripcion, :fecha, assistance_ids: [] )
   end
 
   def set_meet
