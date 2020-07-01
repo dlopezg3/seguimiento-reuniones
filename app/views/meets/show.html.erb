@@ -60,6 +60,7 @@
               <%= f.input :nombre, label: "Nombre de la tarea" %>
               <%= f.input :descripcion, label: "Descripcion" %>
               <%= f.input :fecha, as: :date, html5: true, label: "Fecha de entrega" %>
+              <%= f.association :secretary, collection: Secretary.order(:name), label: "Secretaria o Área responsable"%>
               <%= f.association :assistances, as: :check_boxes, collection: Assistance.where(meet: @meet), label_method: :email, label: "Responsables" %>
               <%= f.button :submit, class:"btn btn-secondary", value:"Añadir Tarea" %>
             <% end %>
