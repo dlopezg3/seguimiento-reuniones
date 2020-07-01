@@ -1,3 +1,4 @@
 class Task < ApplicationRecord
-  belongs_to :assistance
+  has_and_belongs_to_many :assistances
+  # belongs_to :assistance
 end
