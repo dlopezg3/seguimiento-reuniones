@@ -1,0 +1,2 @@
+module Meets::PlansHelper
+end
