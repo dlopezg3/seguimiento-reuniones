@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_07_01_144823) do
+ActiveRecord::Schema.define(version: 2020_07_01_191919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,12 @@ ActiveRecord::Schema.define(version: 2020_07_01_144823) do
     t.string "protocol"
   end
 
+  create_table "secretaries", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.string "session_id", null: false
     t.text "data"
@@ -86,6 +92,8 @@ ActiveRecord::Schema.define(version: 2020_07_01_144823) do
     t.datetime "fecha"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "secretary_id", null: false
+    t.index ["secretary_id"], name: "index_tasks_on_secretary_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -98,4 +106,5 @@ ActiveRecord::Schema.define(version: 2020_07_01_144823) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "assistances", "meets"
+  add_foreign_key "tasks", "secretaries"
 end
