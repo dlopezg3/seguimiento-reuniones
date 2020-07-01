@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_26_154042) do
+ActiveRecord::Schema.define(version: 2020_06_30_222413) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,6 +54,11 @@ ActiveRecord::Schema.define(version: 2020_06_26_154042) do
     t.index ["meet_id"], name: "index_assistances_on_meet_id"
   end
 
+  create_table "assistances_tasks", id: false, force: :cascade do |t|
+    t.bigint "assistance_id", null: false
+    t.bigint "task_id", null: false
+  end
+
   create_table "meets", force: :cascade do |t|
     t.string "nombre"
     t.string "tipo"
@@ -77,10 +82,8 @@ ActiveRecord::Schema.define(version: 2020_06_26_154042) do
     t.string "nombre"
     t.string "descripcion"
     t.datetime "fecha"
-    t.bigint "assistance_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["assistance_id"], name: "index_tasks_on_assistance_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -93,5 +96,4 @@ ActiveRecord::Schema.define(version: 2020_06_26_154042) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "assistances", "meets"
-  add_foreign_key "tasks", "assistances"
 end
