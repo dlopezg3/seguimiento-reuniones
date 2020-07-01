@@ -29,7 +29,7 @@ class MeetsController < ApplicationController
   def update
     @meet.update(meet_params)
     if @meet.save
-      redirect_to meet_path(@meet)
+      redirect_to meet_path(@meet, anchor: set_anchor)
     else
       render :show
     end
@@ -38,10 +38,16 @@ class MeetsController < ApplicationController
   private
 
   def meet_params
-    params.require(:meet).permit(:nombre, :tipo, :fecha, :lugar, :notes)
+    params.require(:meet).permit(:nombre, :tipo, :fecha, :lugar, :notes, :agenda, :protocol)
   end
 
   def set_meet
     @meet = Meet.find(params[:id])
+  end
+
+  def set_anchor
+    return "agenda"   if !params["meet"]["agenda"].nil?
+    return "protocol" if !params["meet"]["protocol"].nil?
+    return "notes"    if !params["meet"]["notes"].nil?
   end
 end
