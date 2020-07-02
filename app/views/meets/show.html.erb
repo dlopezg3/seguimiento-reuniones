@@ -7,16 +7,25 @@
             <%= @meet.nombre %>
           </h1>
           <h4>
-            <%= @meet.tipo %>
+            <% unless @meet.tipo.nil?  %>
+              Tipo de reunión: <%= @meet.tipo %>
+            <% end %>
           </h4>
           <h6>
-            <%= @meet.fecha %>
+            <% unless @meet.tipo.nil? %>
+              Fecha: <%= @meet.fecha.strftime("%F")  %>
+            <% end %>
           </h6>
           <h6>
-            <%= @meet.lugar %>
+            <% unless @meet.lugar.nil?  %>
+              Lugar: <%= @meet.lugar %>
+            <% end %>
           </h6>
         </div>
       </div>
+      <h4 class="mt-4 mb-4 pl-2">
+        Ingresa los datos de la reunión a continuación:
+      </h4>
       <div class="card mb-4">
         <div class="card-body meet-notes" id="agenda">
           <h3>
