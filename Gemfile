@@ -25,7 +25,7 @@ gem 'omniauth-oauth2', '~> 1.6'
 # OmniAuth CSRF protection
 gem 'omniauth-rails_csrf_protection', '~> 0.1.2'
 # REST calls to Microsoft Graph
-gem 'httparty', '~> 0.17.1'
+gem 'httparty', '~> 0.21.0'
 # Session storage in database
 gem 'activerecord-session_store', '~> 1.1'
 
